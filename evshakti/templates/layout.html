@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% block title %}
+
+  {% endblock %}
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    /* Navbar */
+    .navbar-custom {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      animation: slideDown 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #06beb6 !important;
+      letter-spacing: 1px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ddd !important;
+      font-weight: 600;
+      margin: 0 10px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #06beb6;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #06beb6 !important;
+      text-shadow: 0 0 8px #06beb6, 0 0 15px #06beb6;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Footer */
+    .ev-footer {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    .footer-heading {
+      color: #06beb6;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .footer-heading::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #06beb6;
+      margin-top: 6px;
+      border-radius: 2px;
+    }
+
+    .footer-text {
+      color: #ddd;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icon {
+      font-size: 1.8rem;
+      color: #bbb;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon.facebook:hover { color: #1877f2; transform: scale(1.2); }
+    .social-icon.instagram:hover { color: #e4405f; transform: scale(1.2); }
+
+    @media (max-width: 768px) {
+      .social-icons {
+        justify-content: center;
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow-sm">
+  <div class="container-fluid">
+    <!-- Brand / Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNI5b9anXDYddRTaStPlwIhxBgWV8bqYQZZOmtH8qdekffca4-LiBKJPEsy0XvoDKQt0Y&usqp=CAU"
+           alt="Logo" width="40" class="me-2 rounded-circle">
+      Shiv Shakti EV
+    </a>
+    <a class="nav-link disabled text-info fw-bold" href="#">
+  <i class="bi bi-person-circle me-1"></i> {{ user.username }}
+</a>
+
+
+    <!-- Toggler for Mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#evNavbar" aria-controls="evNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="evNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact Us</a>
+        </li>
+
+        {% if user.is_authenticated %}
+          <!-- Show only when logged in -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add' %}">Add Stock</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'show' %}">Available Stock</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        {% else %}
+          <!-- Show only when logged out -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+
+        {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Messages (always visible) -->
+{% if messages %}
+  <div class="d-flex justify-content-center mt-3">
+    <div class="w-50">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+
+<!-- Page Content -->
+{% block content %}
+{% endblock %}
+
+<!-- EV Footer -->
+<footer class="ev-footer mt-5">
+  <div class="container py-5">
+    <div class="row">
+
+      <!-- About EV -->
+      <div class="col-md-6 mb-4">
+        <h5 class="fw-bold footer-heading">About EV Two-Wheelers</h5>
+        <p class="footer-text">
+          EV two-wheelers are the future of urban mobility. With zero emissions,
+          low maintenance, and cost-efficient charging, they provide a sustainable
+          alternative to traditional fuel-based vehicles. Our mission is to promote
+          greener transportation and empower riders with powerful, eco-friendly bikes.
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="col-md-6 mb-4 text-md-end text-center">
+        <h5 class="fw-bold footer-heading">Follow Us</h5>
+        <div class="social-icons mt-3">
+          <a href="#" target="_blank" class="social-icon facebook me-3">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" target="_blank" class="social-icon instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="border-light">
+
+    <div class="text-center text-light fw-bold">
+      &copy; {{ current_year }} Shiv Shakti EV Two-Wheelers. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<title>Add EV Two-Wheeler Stock</title>
+{% endblock %}
+
+{% block content %}
+
+<style>
+  /* Container */
+  .form-container {
+    display: flex;
+    align-items: stretch;  /* ensures both columns take equal height */
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    max-width: 1000px;
+    margin: 4rem auto;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Branding (left side) */
+  .branding-block {
+    flex: 1;
+    background: linear-gradient(135deg, #06beb6, #48b1bf);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .branding-block h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .branding-block p {
+    font-size: 1.1rem;
+    max-width: 280px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .branding-block img {
+    width: 180px;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+
+  .branding-block img:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Form card (right side) */
+  .form-card {
+    flex: 2;
+    padding: 2rem 3rem;
+  }
+
+  .form-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #06beb6, #48b1bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Button */
+  .btn-submit {
+    background: linear-gradient(90deg, #06beb6, #48b1bf);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  .btn-submit:hover {
+    background: linear-gradient(90deg, #48b1bf, #06beb6);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(6, 190, 182, 0.3);
+  }
+</style>
+
+
+<!-- Form with EV Branding -->
+<div class="form-container">
+
+  <!-- Left Branding Block -->
+  <div class="branding-block">
+    <img src="https://static.vecteezy.com/system/resources/previews/045/911/837/non_2x/modern-grey-electric-scooter-standing-cut-out-stock-png.png" alt="Ola EV">
+    <img src="https://png.pngtree.com/recommend-works/png-clipart/20250320/ourmid/pngtree-yellow-scooter-png-image_15832825.png" alt=" EV">
+    <h2>Shiv Shakti EVs</h2>
+    <p>Powering the future of mobility with innovative, eco-friendly two-wheelers designed for efficiency, style, and sustainability.</p>
+  </div>
+
+  <!-- Right Form -->
+  <div class="form-card">
+    <h2>Add EV Two-Wheeler Stock</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-submit mt-3">Submit</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

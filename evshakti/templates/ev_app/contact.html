@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Contact Us | Shiv Shakti EV</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+  /* Section Backgrounds */
+  .section-bg {
+    background: linear-gradient(135deg, #f8f9fa, #e0f7f7);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .section-bg:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+
+  /* Contact Info Cards */
+  .contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  }
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  .contact-icon {
+    font-size: 2rem;
+    color: #06beb6;
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease;
+  }
+  .contact-card:hover .contact-icon {
+    transform: scale(1.2) rotate(10deg);
+    color: #48b1bf;
+  }
+
+  /* Map Styling */
+  .map-section {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border: 5px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(90deg, #06beb6, #48b1bf) border-box;
+    animation: glowBorder 4s linear infinite;
+  }
+  @keyframes glowBorder {
+    0% { box-shadow: 0 0 10px #06beb6; }
+    50% { box-shadow: 0 0 25px #48b1bf; }
+    100% { box-shadow: 0 0 10px #06beb6; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <!-- Heading -->
+  <div class="text-center mb-5 animate__animated animate__fadeInDown">
+    <h1 class="fw-bold text-primary">📍 Contact Us</h1>
+    <p class="text-muted fs-5">We’d love to hear from you! Visit our shop, call us, or drop us a message.</p>
+    <hr class="w-25 mx-auto">
+  </div>
+
+  <!-- Contact Info Section -->
+  <div class="section-bg animate__animated animate__fadeInUp animate__delay-1s">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-geo-alt-fill contact-icon"></i>
+          <h5 class="fw-bold">Our Address</h5>
+          <p class="text-muted">123 Green Street,<br>Pune, Maharashtra, India</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-envelope-fill contact-icon"></i>
+          <h5 class="fw-bold">Email Us</h5>
+          <p class="text-muted">support@shivshaktivehicles.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-card">
+          <i class="bi bi-telephone-fill contact-icon"></i>
+          <h5 class="fw-bold">Call Us</h5>
+          <p class="text-muted">+91 98765 43210</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="section-bg animate__animated animate__fadeInUp animate__delay-2s">
+    <h4 class="fw-bold text-center mb-4">Find Us on Map</h4>
+    <div class="map-section ratio ratio-16x9">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1978028269807!2d73.8567434148925!3d18.52043008740966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c068a9c0f3b7%3A0xf0bb5e1a20c3b857!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1631785360721!5m2!1sen!2sin"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

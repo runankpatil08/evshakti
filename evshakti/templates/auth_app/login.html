@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+{% block content %}
+<style>
+  /* Floating animation for the left image */
+  .floating-image {
+    animation: float 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Glow effect for the login card */
+  .card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 25px #06beb6, 0 0 50px #06beb6;
+    transform: scale(1.02);
+  }
+</style>
+
+<div class="container my-5">
+  <div class="row justify-content-center align-items-center">
+
+    <!-- Left Side Image -->
+    <div class="col-md-6 d-none d-md-block text-center">
+      <img src="https://img.freepik.com/free-vector/electric-scooter-concept-illustration_114360-7299.jpg"
+           alt="Login Image" class="img-fluid rounded shadow floating-image">
+    </div>
+
+    <!-- Right Side Form -->
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4 text-primary fw-bold">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </h2>
+
+          <form method="post" class="needs-validation">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="username" class="form-label fw-bold">Username</label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label fw-bold">Password</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">
+              <i class="bi bi-check-circle"></i> Login
+            </button>
+          </form>
+
+          <div class="text-center mt-3">
+            <small>Don't have an account?
+              <a href="{% url 'register' %}" class="text-decoration-none">Register</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

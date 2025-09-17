@@ -1,0 +1,252 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+<title> Home</title>
+{% endblock %}
+
+{% block content %}
+
+<!--BLOCK 0 START-->
+
+<!--BLOCK 0 END-->
+
+
+<!--BLOCK 1 START (Hero Section)-->
+<section class="hero-section" style="background: #e0f7fa; padding: 80px 20px;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNI5b9anXDYddRTaStPlwIhxBgWV8bqYQZZOmtH8qdekffca4-LiBKJPEsy0XvoDKQt0Y&usqp=CAU"
+    alt="Logo"
+    style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"
+  >
+</div>
+    <h1 style="font-size: 3rem; font-weight: 900; color: #00796b; margin-bottom: 20px;">
+      ⚡ Shiv Shakti EVs
+    </h1>
+    <p style="font-size: 1.5rem; color: #004d40; font-weight: 600; margin-bottom: 40px;">
+      Eco-friendly, Stylish & Affordable Electric Two-Wheelers
+    </p>
+
+    <!-- Feature badges -->
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a style="text-decoration:none;" href="{% url 'battery' %}">
+        <div style="background:#00796b; color:#fff; padding:10px 15px; border-radius:10px; font-weight:500; display:flex; align-items:center; gap:8px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/battery.png" alt="Battery Icon" style="width:24px; height:24px;"/>
+          Long Battery Life
+        </div>
+      </a>
+      <a style="text-decoration:none;" href="{% url 'fast' %}">
+        <div style="background:#00796b; color:#fff; padding:10px 15px; border-radius:10px; font-weight:500; display:flex; align-items:center; gap:8px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/speed.png" alt="Speed Icon" style="width:24px; height:24px;"/>
+          Fast & Smooth
+        </div>
+      </a>
+      <a style="text-decoration:none;" href="{% url 'eco' %}">
+        <div style="background:#00796b; color:#fff; padding:10px 15px; border-radius:10px; font-weight:500; display:flex; align-items:center; gap:8px;">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/water.png" alt="Eco Icon" style="width:24px; height:24px;"/>
+          Eco-Friendly
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<!--BLOCK 1 END-->
+
+<!--BLOCK 2 START (Services Section)-->
+<section class="services-section" style="padding: 80px 20px; background: #f8f9fa;margin-top:2px;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.8rem; margin-bottom: 10px; color: #333;">Our Services</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 50px; color: #666;">
+      We provide high-quality services for all your electric two-wheeler needs.
+    </p>
+    <div class="services-cards" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+      <!-- Service Cards -->
+      <div class="service-card" style="background: #fff; padding: 30px; border-radius: 15px; width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <img src="https://cdn-icons-png.flaticon.com/128/807/807303.png" alt="Repair Icon" style="width: 60px; height: 60px; margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 10px;">EV Repair</h3>
+        <p style="color: #666; font-size: 0.95rem;">
+          Professional repair and maintenance services for all types of electric two-wheelers.
+        </p>
+      </div>
+      <div class="service-card" style="background: #fff; padding: 30px; border-radius: 15px; width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <img src="https://cdn-icons-png.flaticon.com/128/4092/4092281.png" alt="Charging Icon" style="width: 60px; height: 60px; margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 10px;">Battery Services</h3>
+        <p style="color: #666; font-size: 0.95rem;">
+          Battery replacement, charging station installation, and optimization for long-lasting performance.
+        </p>
+      </div>
+      <div class="service-card" style="background: #fff; padding: 30px; border-radius: 15px; width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <img src="https://cdn-icons-png.flaticon.com/128/5632/5632549.png" alt="Upgrade Icon" style="width: 60px; height: 60px; margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 10px;">Customization</h3>
+        <p style="color: #666; font-size: 0.95rem;">
+          Upgrade your electric bike with accessories, paint jobs, and performance enhancements.
+        </p>
+      </div>
+      <div class="service-card" style="background: #fff; padding: 30px; border-radius: 15px; width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <img src="https://cdn-icons-png.flaticon.com/128/3547/3547391.png" alt="Test Ride Icon" style="width: 60px; height: 60px; margin-bottom: 20px;">
+        <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 10px;">Test Rides</h3>
+        <p style="color: #666; font-size: 0.95rem;">
+          Experience our electric two-wheelers firsthand with safe and guided test rides.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const cards = document.querySelectorAll('.service-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-10px)');
+    card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
+  });
+</script>
+<!--BLOCK 2 END-->
+<!--BLOCK 3 START (About Us Section - Decorated)-->
+<section style="padding: 80px 20px; background: #fff; margin-top:2px; position: relative;">
+  <!-- Decorative Shapes -->
+  <div style="position: absolute; top: -40px; left: -40px; width: 150px; height: 150px; background: #e0f7fa; border-radius: 50%; z-index: 0;"></div>
+  <div style="position: absolute; bottom: -40px; right: -40px; width: 200px; height: 200px; background: #b2ebf2; border-radius: 50%; z-index: 0;"></div>
+
+  <div style="max-width: 1100px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+    <h2 style="font-size: 2.8rem; margin-bottom: 30px; color: #00796b; font-weight: 700;">About Us</h2>
+    <p style="font-size: 1.1rem; color: #555; max-width: 850px; margin: 0 auto; line-height: 1.8;">
+      At <b>Shiv Shakti E Vehicle</b>, we are dedicated to providing eco-friendly and innovative electric two-wheelers
+      designed for modern urban mobility. Our mission is to make green transportation affordable and accessible to everyone.
+    </p>
+
+    <!-- Highlight Cards -->
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 50px;">
+      <div style="flex: 1 1 250px; background: #f1fafa; padding: 25px 20px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+        <h3 style="color: #00796b; margin-bottom: 10px; font-size: 1.5rem;">Eco-Friendly Mobility</h3>
+        <p style="color:#555; font-size: 0.95rem;">We offer sustainable transportation solutions that reduce carbon footprint and promote green living.</p>
+      </div>
+      <div style="flex: 1 1 250px; background: #f1fafa; padding: 25px 20px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+        <h3 style="color: #00796b; margin-bottom: 10px; font-size: 1.5rem;">Innovative Design</h3>
+        <p style="color:#555; font-size: 0.95rem;">Our electric two-wheelers are designed with style, comfort, and cutting-edge technology in mind.</p>
+      </div>
+      <div style="flex: 1 1 250px; background: #f1fafa; padding: 25px 20px; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: transform 0.3s;">
+        <h3 style="color: #00796b; margin-bottom: 10px; font-size: 1.5rem;">Affordable & Reliable</h3>
+        <p style="color:#555; font-size: 0.95rem;">We ensure our electric two-wheelers are accessible without compromising performance or quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--BLOCK 3 END-->
+
+
+<!--BLOCK 4 START (Why Choose EV)-->
+<section style="padding: 80px 20px; background: #f0f4f7; margin-top:2px;">
+  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.8rem; margin-bottom: 50px; color: #222;">Why Choose Electric Two-Wheelers?</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+      <div style="background:#fff; padding:25px; border-radius:15px; width:260px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="https://cdn-icons-png.flaticon.com/128/2058/2058078.png" style="width:55px; margin-bottom:15px;" alt="Eco Icon">
+        <h3 style="color:#333; margin-bottom:10px;">Zero Emissions</h3>
+        <p style="color:#666; font-size:0.95rem;">Reduce your carbon footprint with sustainable and clean rides.</p>
+      </div>
+      <div style="background:#fff; padding:25px; border-radius:15px; width:260px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="https://cdn-icons-png.flaticon.com/128/190/190411.png" style="width:55px; margin-bottom:15px;" alt="Cost Icon">
+        <h3 style="color:#333; margin-bottom:10px;">Low Running Cost</h3>
+        <p style="color:#666; font-size:0.95rem;">Save money on fuel and maintenance with cost-effective EVs.</p>
+      </div>
+      <div style="background:#fff; padding:25px; border-radius:15px; width:260px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="https://cdn-icons-png.flaticon.com/128/1470/1470772.png" style="width:55px; margin-bottom:15px;" alt="Battery Icon">
+        <h3 style="color:#333; margin-bottom:10px;">Advanced Battery Tech</h3>
+        <p style="color:#666; font-size:0.95rem;">Enjoy long-lasting performance with modern lithium batteries.</p>
+      </div>
+      <div style="background:#fff; padding:25px; border-radius:15px; width:260px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+        <img src="https://cdn-icons-png.flaticon.com/128/616/616408.png" style="width:55px; margin-bottom:15px;" alt="Ride Icon">
+        <h3 style="color:#333; margin-bottom:10px;">Smooth Rides</h3>
+        <p style="color:#666; font-size:0.95rem;">Experience noiseless, smooth and powerful rides everyday.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--BLOCK 4 END-->
+
+<!--BLOCK 5 START (Featured Models)-->
+
+<!--BLOCK 5 END-->
+<!--BLOCK 6 START (Available Stock Two-Column Layout with Carousel)-->
+<section style="padding: 80px 20px; background: #f8f9fa; margin-top:2px;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-primary">Available EV Two-Wheelers</h2>
+      <p class="text-muted">Check the latest models and stock availability</p>
+      <hr class="w-25 mx-auto" style="border: 2px solid #0d6efd;">
+    </div>
+
+    {% for vehicle in ev %}
+    <div class="row align-items-center mb-5 shadow-lg rounded-4 p-3 animate__animated animate__fadeInUp" style="background: #fff; border-left: 6px solid #0d6efd;">
+
+      <!-- Left: Image Carousel -->
+      <div class="col-md-5 mb-3 mb-md-0">
+        {% if vehicle.image1 or vehicle.image2 or vehicle.image3 %}
+        <div id="carousel{{ vehicle.id }}" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" style="height:250px;">
+            {% if vehicle.image1 %}
+            <div class="carousel-item active h-100">
+              <img src="{{ vehicle.image1.url }}" class="d-block w-100 h-100 rounded" style="object-fit: cover;" alt="{{ vehicle.model_name }} Image 1">
+            </div>
+            {% endif %}
+            {% if vehicle.image2 %}
+            <div class="carousel-item {% if not vehicle.image1 %}active{% endif %} h-100">
+              <img src="{{ vehicle.image2.url }}" class="d-block w-100 h-100 rounded" style="object-fit: cover;" alt="{{ vehicle.model_name }} Image 2">
+            </div>
+            {% endif %}
+            {% if vehicle.image3 %}
+            <div class="carousel-item {% if not vehicle.image1 and not vehicle.image2 %}active{% endif %} h-100">
+              <img src="{{ vehicle.image3.url }}" class="d-block w-100 h-100 rounded" style="object-fit: cover;" alt="{{ vehicle.model_name }} Image 3">
+            </div>
+            {% endif %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ vehicle.id }}" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ vehicle.id }}" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="text-center p-5 text-muted border rounded" style="height:250px; display:flex; align-items:center; justify-content:center;">No Image</div>
+        {% endif %}
+      </div>
+
+      <!-- Right: Vehicle Details -->
+      <div class="col-md-7">
+        <h3 class="text-primary fw-bold">{{ vehicle.model_name }}</h3>
+        <p class="text-muted mb-2">{{ vehicle.company }}</p>
+        <div class="row mb-2">
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Battery:</span> {{ vehicle.battery_capacity }} KWh</div>
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Range:</span> {{ vehicle.range_per_charge }} km</div>
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Price:</span> ₹{{ vehicle.price }}</div>
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Color:</span> {{ vehicle.color }}</div>
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Stock Available:</span> {{ vehicle.stock }}</div>
+          {% if vehicle.top_speed %}
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Top Speed:</span> {{ vehicle.top_speed }} km/h</div>
+          {% endif %}
+          {% if vehicle.charging_time %}
+          <div class="col-sm-6 mb-2"><span class="fw-semibold">Charging Time:</span> {{ vehicle.charging_time }} hrs</div>
+          {% endif %}
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="mt-3">
+          <a class="btn btn-outline-primary btn-sm me-2" href="{% url 'update' vehicle.id %}">Update</a>
+          <a class="btn btn-outline-danger btn-sm" href="{% url 'delete' vehicle.id %}">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<!--BLOCK 6 END-->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
