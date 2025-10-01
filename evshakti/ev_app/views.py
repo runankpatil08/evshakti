@@ -5,6 +5,35 @@ from django.conf import settings
 from .forms import ElectricTwoWheeler_form
 from .models import ElectricTwoWheeler
 
+from .models import Review
+from .forms import ReviewForm
+
+
+
+def add_review(request):
+    reviews = Review.objects.all().order_by("-created_at")
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            # Only assign user if logged in
+            if request.user.is_authenticated:
+                review.user = request.user
+            review.save()
+            return redirect("reviews")
+    else:
+        form = ReviewForm()
+
+    return render(request, "ev_app/reviews.html", {"form": form, "reviews": reviews})
+
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    if request.method == "POST":
+        review.delete()
+        return redirect("reviews")
+    return redirect("reviews")
+
 
 # ------------------------------
 # Home Page + Features

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container py-5">
+  <h2 class="text-center text-primary mb-4">Customer Reviews</h2>
+
+  <!-- Review Button -->
+  <div class="card shadow p-4 mb-5">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Add Review</button>
+    </form>
+  </div>
+
+  <!-- Show All Reviews -->
+  <div class="row">
+    {% for review in reviews %}
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <div class="d-flex justify-content-between">
+          <strong>{{ review.user.username }}</strong>
+          <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
+        </div>
+        <p class="mt-2">{{ review.text }}</p>
+        {% if review.image %}
+          <img src="{{ review.image.url }}" class="img-fluid rounded mb-2" style="max-height:200px; object-fit:cover;">
+        {% endif %}
+
+        {% if review.user == request.user %}
+        <form method="POST" action="{% url 'delete_review' review.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    {% empty %}
+      <p class="text-center text-muted">No reviews yet. Be the first to add one!</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

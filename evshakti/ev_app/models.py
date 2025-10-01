@@ -1,5 +1,18 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
+
+class Review(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)  # Optional user
+    text = models.TextField()
+    image = models.ImageField(upload_to="review_images/", null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        if self.user:
+            return f"{self.user.username} - {self.text[:20]}"
+        return f"Anonymous - {self.text[:20]}"
+
 
 
 # ------------------------------

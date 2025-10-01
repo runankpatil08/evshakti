@@ -1,4 +1,4 @@
-from .views import (add_view, show_view,update_view,delete_view,home_view,contact_view,longBatteryLife,fastandsmooth,ecofriendly)
+from .views import (add_view, show_view,update_view,delete_view,home_view,contact_view,longBatteryLife,fastandsmooth,ecofriendly,delete_review,add_review)
 from django.urls import path
 
 
@@ -12,5 +12,7 @@ urlpatterns=[
     path("longBatteryLife/", longBatteryLife, name="battery"),
     path("fastandsmooth/", fastandsmooth, name="fast"),
     path("ecofriendly/", ecofriendly, name="eco"),
+    path("reviews/", add_review, name="reviews"),
+    path("reviews/delete/<int:review_id>/", delete_review, name="delete_review")
 
 ]
